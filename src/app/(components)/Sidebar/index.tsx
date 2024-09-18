@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import Image from "next/image";
 import ActionLogo from "@/../public/action-logo-icon.svg";
-import { LockIcon } from "lucide-react";
+import { Icon, LockIcon, LucideIcon } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "@/app/redux";
+import Link from "next/link";
 
 const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(true);
@@ -23,7 +26,7 @@ const Sidebar = () => {
           </div>
         </div>
         {/* TEAM */}
-        <div className="flex items-center gap-5 border-y-[1.5px] border-gray-200 px-8 py-4 dark:border-gray-700">
+        <div className="flex items-center gap-5 border-y-[1.5px] border-gray-200 px-8 py-4 dark:border-dark-bg">
           <Image
             className="rounded-md"
             src="/logo.png"
@@ -47,4 +50,28 @@ const Sidebar = () => {
   );
 };
 
+interface SidebarLinkProps {
+  href: string;
+  icon: LucideIcon;
+  label: string;
+  isCollapsed: boolean;
+}
+const SidebarLink = ({
+  href,
+  icon: Icon,
+  label,
+  isCollapsed,
+}: SidebarLinkProps) => {
+  const pathname = usePathname();
+  const isActive =
+    pathname === href || (pathname === "/" && href === "/dashboard");
+  const screenWidth = window.innerWidth;
+
+  const dispatch = useAppDispatch();
+  const isSidebarCollapsed = useAppSelector(
+    (state) => state.global.isSidebarCollapsed,
+  );
+
+  return <Link href={href} className="w-full"></Link>;
+};
 export default Sidebar;
