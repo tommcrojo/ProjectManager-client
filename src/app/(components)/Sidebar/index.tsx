@@ -25,23 +25,24 @@ const Sidebar = () => {
   return (
     <div className={sidebarClassNames}>
       <div className="flex h-[100%] w-full flex-col">
-        <div className="justify-betweem z-50 flex min-h-[58px] w-64 items-center gap-3 bg-white px-6 pt-3 dark:bg-black-bg">
-          <Image src={ActionLogo} alt="Action Logo" width={20} height={20} />
-          <div className="flex flex-row justify-between">
+        <div className="flex justify-between z-50  min-h-[58px] w-64 items-center gap-3 bg-white px-6 pt-3 dark:bg-black-bg">
+          <div className="flex gap-2">
+            <Image src={ActionLogo} alt="Action Logo" width={20} height={20} />
             <div className="text-xl font-bold text-gray-800 dark:text-white">
               Action
             </div>
-            {isSidebarCollapsed ? null : (
-              <button
-                className="py-3"
-                onClick={() => {
-                  dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
-                }}
-              >
-                <X className="align- h-6 w-6 text-gray-700 hover:text-gray-500 dark:text-white" />
-              </button>
-            )}
           </div>
+          {isSidebarCollapsed ? null : (
+            <button
+              className="py-3"
+              onClick={() => {
+                dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
+              }}
+            >
+              <X className="align- h-6 w-6 text-gray-700 hover:text-gray-500 dark:text-white" />
+            </button>
+          )}
+          
         </div>
         {/* TEAM */}
         <div className="flex items-center gap-5 border-y-[1.5px] border-gray-200 px-8 py-4 dark:border-dark-bg">

@@ -23,7 +23,12 @@
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18",
-    "recharts": "^2.12.7"
+    "recharts": "^2.12.7",
+    "typescript": "^5",
+    "@reduxjs/toolkit": "^2.2.7",
+    "dotenv": "^16.4.5",
+    "react-redux": "^9.1.2",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.16.5",
@@ -37,6 +42,6 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "tailwind-merge": "^2.5.2"
   }
 }
